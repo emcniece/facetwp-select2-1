@@ -41,15 +41,13 @@ class FWP_Select2
             return;
         }
 
-        $plugins_url = plugins_url( 'facetwp-select2' );
-
         // ACF5 ships with an older version
         wp_deregister_script( 'select2' );
         wp_deregister_style( 'select2' );
 
         // Register
-        wp_register_script( 'select2', $plugins_url . '/select2/select2.min.js', array( 'jquery' ), '4.0.0' );
-        wp_register_style( 'select2', $plugins_url . '/select2/select2.min.css', array(), '4.0.0' );
+        wp_register_script( 'select2', plugins_url( 'select2/select2.min.js', __FILE__ ), array( 'jquery' ), '4.0.0' );
+        wp_register_style( 'select2', plugins_url( 'select2/select2.min.css', __FILE__), array(), '4.0.0' );
 
         // Enqueue
         wp_enqueue_script( 'select2' );
